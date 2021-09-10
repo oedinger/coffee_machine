@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows;
 using GenericMachine.DataModels;
 using GenericMachine.Interfaces;
 
@@ -26,10 +27,11 @@ namespace GenericMachine.Implementation
             _jsonPath = jsonPath;
 
             ConfigData.ConfigDirPath = Path.GetDirectoryName(jsonPath);
-            var json = File.ReadAllText(jsonPath);            
+            var json = File.ReadAllText(jsonPath);
             this.Data = JsonSerializer.Deserialize<CoffeeMachineData>(json);
 
             ValidateBeveragesAvailability();
+            
         }
 
         #endregion

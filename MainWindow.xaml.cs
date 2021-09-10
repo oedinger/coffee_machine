@@ -54,11 +54,20 @@ namespace GenericMachine
         {
             InitializeComponent();
 
-            var configFilePath = ConfigurationManager.AppSettings["ConfigurationFilePath"];
-            var CoffeMachineControl = new CoffeMachineControl(Path.Combine(Directory.GetCurrentDirectory() + "\\..\\..\\", configFilePath));
+            try
+            {
+                var configFilePath = ConfigurationManager.AppSettings["ConfigurationFilePath"];
+                var CoffeMachineControl = new CoffeMachineControl(Path.Combine(Directory.GetCurrentDirectory() + "\\..\\..\\", configFilePath));
+
+                BeveragesVM = new CoffeMachineViewModel(CoffeMachineControl);
+                this.DataContext = BeveragesVM;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show($"The following was raised : {e.Message}");
+            }
             
-            BeveragesVM = new CoffeMachineViewModel(CoffeMachineControl);
-            this.DataContext = BeveragesVM;
 
             //var CoffeeMachineData = new CoffeeMachineData();
             //CoffeeMachineData.Beverages = new Dictionary<string, BeverageData>();
