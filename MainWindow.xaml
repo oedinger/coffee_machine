@@ -20,76 +20,97 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <Image Grid.Column="0" Source="{Binding ImagePath}" Width="44" Height="65" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <Image Grid.Column="0" Source="{Binding ImageFullPath}" Width="44" Height="65" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
                 <TextBlock Grid.Column="1" Text="{Binding Name}" Foreground="Black" FontSize="18" Margin="10" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="left"/>
             </Grid>
         </DataTemplate>
 
         <DataTemplate x:Key="IngredientDataTemplate">
-            <Grid Visibility="{Binding IsLowLevel, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Grid ><!--Visibility="{Binding IsLowLevel, Converter={StaticResource BooleanToVisibilityConverter}}"-->
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <Image Grid.Column="0" Source="{Binding ImagePath}" Width="22" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <Image Grid.Column="0" Source="{Binding ImageFullPath}" Width="22" Height="35" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
-                <TextBlock Grid.Column="1" Text="{Binding Name}" Foreground="Red" FontSize="12" Margin="5" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="left"/>
+                <TextBlock Grid.Column="1" Text="{Binding Name}" FontSize="12" Margin="5" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="left">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsLowLevel}" Value="true">
+                                    <Setter Property="Foreground" Value="Orange"></Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsLowLevel}" Value="false">
+                                    <Setter Property="Foreground" Value="Green"></Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsEmpty}" Value="true">
+                                    <Setter Property="Foreground" Value="Red"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
             </Grid>
         </DataTemplate>
 
     </Window.Resources>
-    <StackPanel>
+    
+    <ScrollViewer >
+        <StackPanel>
 
-        <StackPanel Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Visible">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40*" />
-                    <ColumnDefinition Width="30*" />
-                </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40*" />
+                        <ColumnDefinition Width="30*" />
+                    </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0">
-                    <TextBlock Margin="10" Text="Beverages"></TextBlock>
-                    <telerik:RadListBox Grid.Column="0"
-                                    Margin="5"
-                                    ItemsSource="{Binding Beverages}" VerticalAlignment="Top"                                    
-                                    SelectionMode="Single"                                    
-							        ItemTemplate="{StaticResource BeverageDataTemplate}" >
-                    </telerik:RadListBox>
-                </StackPanel>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Margin="10" Text="Beverages"></TextBlock>
+                        <telerik:RadListBox Grid.Column="0"
+                                        Margin="5"
+                                        ItemsSource="{Binding Beverages}" VerticalAlignment="Top"                                    
+                                        SelectionMode="Single"
+                                        SelectedValue="{Binding SelectedBeverage, Mode=TwoWay}"
+							            ItemTemplate="{StaticResource BeverageDataTemplate}" >
+                        </telerik:RadListBox>
+                    </StackPanel>
 
-                <StackPanel Grid.Column="1">
-                    <TextBlock Margin="10" Text="Low Level Ingredients"></TextBlock>
-                    <ListView  IsEnabled="False"
-                               Margin="5"
-                               ItemsSource="{Binding Ingredients}" VerticalAlignment="Top"                                                                        
-							   ItemTemplate="{StaticResource IngredientDataTemplate}" >
-                    </ListView>
-                </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Margin="10" Text="Ingredients Status"></TextBlock>
+                        <ListView  IsEnabled="False"
+                                   Margin="5"
+                                   ItemsSource="{Binding Ingredients}" VerticalAlignment="Top"                                                                        
+							       ItemTemplate="{StaticResource IngredientDataTemplate}" >
+                        </ListView>
+                    </StackPanel>
 
                 
                 
-            </Grid>
-            <telerik:RadButton Grid.Column="1" 
-                                   VerticalAlignment="Stretch" 
-                                    HorizontalAlignment="Left"
-                                   Margin="10"
-                                   Command="{Binding Brew}"
-                                   Width="100" Height="50">Order</telerik:RadButton>
+                </Grid>
+                <telerik:RadButton Grid.Column="1" 
+                                       VerticalAlignment="Stretch" 
+                                        HorizontalAlignment="Left"
+                                       Margin="10"
+                                       Command="{Binding Brew}"
+                                       Width="100" Height="50">Brew</telerik:RadButton>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" ScrollViewer.CanContentScroll="True" Margin="5">
+                <TextBlock Margin="25,5" Text="Brew History"/>
+                <ListView  IsEnabled="False"
+                           Margin="20,5"
+                           SelectionMode="Single"
+                           MinHeight="60"
+                           ItemsSource="{Binding OrderHistory}" VerticalAlignment="Top"/>
+
+            </StackPanel>
+
+
         </StackPanel>
-
-        <StackPanel Grid.Row="1" ScrollViewer.CanContentScroll="True" Margin="5">
-            <TextBlock Margin="25,5" Text="Brew History"/>
-            <ListView  IsEnabled="False"
-                       Margin="20,5"
-                       SelectionMode="Single"
-                       MinHeight="60"
-                       ItemsSource="{Binding OrderHistory}" VerticalAlignment="Top"/>
-
-        </StackPanel>
-
-
-    </StackPanel>
+    
+    </ScrollViewer >
 </Window>

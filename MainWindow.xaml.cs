@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using GenericMachine.DataModels;
 using GenericMachine.Implementation;
 using GenericMachine.ViewModels;
@@ -53,8 +53,9 @@ namespace GenericMachine
         public MainWindow()
         {
             InitializeComponent();
-            
-            var CoffeMachineControl = new CoffeMachineControl(@"C:\Work\git\coffee_machine\Data\CoffeMachine.json");
+
+            var configFilePath = ConfigurationManager.AppSettings["ConfigurationFilePath"];
+            var CoffeMachineControl = new CoffeMachineControl(Path.Combine(Directory.GetCurrentDirectory() + "\\..\\..\\", configFilePath));
             
             BeveragesVM = new CoffeMachineViewModel(CoffeMachineControl);
             this.DataContext = BeveragesVM;

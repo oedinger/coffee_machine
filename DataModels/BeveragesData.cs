@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -8,12 +9,22 @@ using Telerik.Windows.Controls;
 
 namespace GenericMachine.DataModels
 {
+    public class ConfigData
+    {
+        public static string ConfigDirPath { get; set; }
+    }
+
     public class IngredientData: ViewModelBase
     {
         public string Name { get; set; }
 
+        public string ImagePath { get; set; }
+
+        [JsonIgnore]
+        public string ImageFullPath { get => File.Exists(ImagePath) ? ImagePath : Path.Combine(ConfigData.ConfigDirPath, ImagePath); }
+
         public int LowLevelIndicatorAmount { get; set; }
-        
+
         private int _availableAmount;
         public int AvailableAmount
         {
@@ -28,6 +39,7 @@ namespace GenericMachine.DataModels
                     _availableAmount = value;
                     OnPropertyChanged("AvailableAmount");
                     OnPropertyChanged("IsLowLevel");
+                    OnPropertyChanged("IsEmpty");
                 }
             }
         }
@@ -41,6 +53,15 @@ namespace GenericMachine.DataModels
             }
         }
 
+        [JsonIgnore]
+        public bool IsEmpty
+        {
+            get
+            {
+                return _availableAmount == 0;
+            }
+        }
+
 
     }
 
@@ -50,6 +71,9 @@ namespace GenericMachine.DataModels
         public string Name { get; set; }
 
         public string ImagePath { get; set; }
+        
+        [JsonIgnore]
+        public string ImageFullPath { get => File.Exists(ImagePath) ? ImagePath : Path.Combine(ConfigData.ConfigDirPath, ImagePath); }
 
         public Dictionary<string, int> Recipe { get; set; }
         

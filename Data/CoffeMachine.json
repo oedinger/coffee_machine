@@ -2,7 +2,7 @@
   "Beverages": {
     "black_coffee": {
       "Name": "Black Coffee",
-      "ImagePath": "C:\\Work\\git\\coffee_machine\\Data\\Icons\\black_coffe.png",
+      "ImagePath": "Icons\\black_coffe.png",
       "Recipe": {
         "hot_water": 1,
         "coffee": 2
@@ -10,7 +10,7 @@
     },
     "chocolate": {
       "Name": "Chocolate",
-      "ImagePath": "C:\\Work\\git\\coffee_machine\\Data\\Icons\\black_coffe.png",
+      "ImagePath": "Icons\\hot_coco.png",
       "Recipe": {
         "coco_powder": 1,
         "hot_water": 1,
@@ -19,14 +19,14 @@
     },
     "hot_water": {
       "Name": "Hot water",
-      "ImagePath": "C:\\Work\\git\\coffee_machine\\Data\\Icons\\black_coffe.png",
+      "ImagePath": "Icons\\hot_water.png",
       "Recipe": {
         "hot_water": 1
       }
     },
     "cappuccino": {
       "Name": "Cappuccino",
-      "ImagePath": "C:\\Work\\git\\coffee_machine\\Data\\Icons\\black_coffe.png",
+      "ImagePath": "Icons\\Cappuccino.png",
       "Recipe": {
         "coffee": 1,
         "hot_water": 1,
@@ -37,21 +37,25 @@
   "Inventory": {
     "hot_water": {
       "Name": "Hot Water",
+      "ImagePath": "Icons\\water.png",
       "LowLevelIndicatorAmount": 2,
       "AvailableAmount": 0
     },
     "coffee": {
       "Name": "Coffee",
+      "ImagePath": "Icons\\coffe_bean.png",
       "LowLevelIndicatorAmount": 2,
-      "AvailableAmount": 1
+      "AvailableAmount": 0
     },
     "coco_powder": {
       "Name": "Coco Powder",
+      "ImagePath": "Icons\\coco_powder.png",
       "LowLevelIndicatorAmount": 2,
-      "AvailableAmount": 2
+      "AvailableAmount": 0
     },
     "milk": {
       "Name": "Milk",
+      "ImagePath": "Icons\\milk.png",
       "LowLevelIndicatorAmount": 2,
       "AvailableAmount": 2
     }

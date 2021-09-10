@@ -25,7 +25,7 @@ namespace GenericMachine.Implementation
         {
             _jsonPath = jsonPath;
 
-            //var dirPath = Path.GetDirectoryName(jsonPath);
+            ConfigData.ConfigDirPath = Path.GetDirectoryName(jsonPath);
             var json = File.ReadAllText(jsonPath);            
             this.Data = JsonSerializer.Deserialize<CoffeeMachineData>(json);
 
