@@ -44,7 +44,7 @@ namespace GenericMachine.Implementation
 
         public void Brew(BeverageData BeverageData)
         {            
-            UpdateInventory(BeverageData);
+            UpdateIngredientsInventory(BeverageData);
         }
 
         #endregion
@@ -52,11 +52,11 @@ namespace GenericMachine.Implementation
 
         #region Private Methods
 
-        private void UpdateInventory(BeverageData BeverageData)
+        private void UpdateIngredientsInventory(BeverageData BeverageData)
         {
-            foreach (var recipeItem in BeverageData.Recipe)
+            foreach (var IngredientsItem in BeverageData.Ingredients)
             {
-                Data.Inventory[recipeItem.Key].AvailableAmount -= recipeItem.Value;
+                Data.IngredientsInventory[IngredientsItem.Key].AvailableAmount -= IngredientsItem.Value;
             }
 
             ValidateBeveragesAvailability();
@@ -74,10 +74,10 @@ namespace GenericMachine.Implementation
             {
                 var isBeverageEnabled = true;
                 var BeverageData = BeverageItem.Value;
-                foreach (var recipeItem in BeverageData.Recipe)
+                foreach (var IngredientsItem in BeverageData.Ingredients)
                 {
-                    if (!Data.Inventory.ContainsKey(recipeItem.Key) || 
-                         Data.Inventory[recipeItem.Key].AvailableAmount < recipeItem.Value)
+                    if (!Data.IngredientsInventory.ContainsKey(IngredientsItem.Key) || 
+                         Data.IngredientsInventory[IngredientsItem.Key].AvailableAmount < IngredientsItem.Value)
                     {
                         isBeverageEnabled = false;
                         break;

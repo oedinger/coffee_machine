@@ -28,7 +28,7 @@ namespace GenericMachine.ViewModels
             
             _orderHistory = new ObservableCollection<string>();
             _beverages = new List<BeverageData>(_coffeMachineControl.Data.Beverages.Values);
-            _ingredients = new List<IngredientData>(_coffeMachineControl.Data.Inventory.Values);
+            _ingredients = new List<IngredientData>(_coffeMachineControl.Data.IngredientsInventory.Values);
 
             SelectedBeverage = Beverages.FirstOrDefault(p => p.IsEnabled);
 
@@ -57,7 +57,6 @@ namespace GenericMachine.ViewModels
                 return _ingredients;
             }
         }
-
 
         private BeverageData _selectedBeverage;
         public BeverageData SelectedBeverage 

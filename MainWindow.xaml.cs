@@ -65,13 +65,13 @@ namespace GenericMachine
             //CoffeeMachineData.Beverages.Add("black_coffee", new BeverageData()
             //{
             //    FullName = "Black Coffee",
-            //    Recipe = new Dictionary<string, int>()
+            //    Ingredients = new Dictionary<string, int>()
             //    {
             //        {"hot_water", 1} ,
             //        {"coffee", 2}
             //    }
             //});
-            //CoffeeMachineData.Inventory = new Dictionary<string, IngredientData>()
+            //CoffeeMachineData.IngredientsInventory = new Dictionary<string, IngredientData>()
             //{
             //    {"hot_water", new IngredientData()
             //                  {

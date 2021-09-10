@@ -75,7 +75,7 @@ namespace GenericMachine.DataModels
         [JsonIgnore]
         public string ImageFullPath { get => File.Exists(ImagePath) ? ImagePath : Path.Combine(ConfigData.ConfigDirPath, ImagePath); }
 
-        public Dictionary<string, int> Recipe { get; set; }
+        public Dictionary<string, int> Ingredients { get; set; }
         
         private bool _isEnabled = false;        
         [JsonIgnore]
@@ -101,9 +101,9 @@ namespace GenericMachine.DataModels
             sb.Append(Name);
             sb.Append(" : ");
 
-            foreach (var recipeItem in Recipe)
+            foreach (var IngredientsItem in Ingredients)
             {
-                sb.Append($"{recipeItem.Value} x {recipeItem.Key},");
+                sb.Append($"{IngredientsItem.Value} x {IngredientsItem.Key},");
             }
             var str = sb.Remove(sb.Length - 1, 1).ToString();
             return str;

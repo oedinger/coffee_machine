@@ -3,7 +3,7 @@
     "black_coffee": {
       "Name": "Black Coffee",
       "ImagePath": "Icons\\black_coffe.png",
-      "Recipe": {
+      "Ingredients": {
         "hot_water": 1,
         "coffee": 2
       }
@@ -11,7 +11,7 @@
     "chocolate": {
       "Name": "Chocolate",
       "ImagePath": "Icons\\hot_coco.png",
-      "Recipe": {
+      "Ingredients": {
         "coco_powder": 1,
         "hot_water": 1,
         "milk": 1
@@ -20,21 +20,21 @@
     "hot_water": {
       "Name": "Hot water",
       "ImagePath": "Icons\\hot_water.png",
-      "Recipe": {
+      "Ingredients": {
         "hot_water": 1
       }
     },
     "cappuccino": {
       "Name": "Cappuccino",
       "ImagePath": "Icons\\Cappuccino.png",
-      "Recipe": {
+      "Ingredients": {
         "coffee": 1,
         "hot_water": 1,
         "milk": 1
       }
     }
   },
-  "Inventory": {
+  "IngredientsInventory": {
     "hot_water": {
       "Name": "Hot Water",
       "ImagePath": "Icons\\water.png",
@@ -51,13 +51,13 @@
       "Name": "Coco Powder",
       "ImagePath": "Icons\\coco_powder.png",
       "LowLevelIndicatorAmount": 2,
-      "AvailableAmount": 0
+      "AvailableAmount": 10
     },
     "milk": {
       "Name": "Milk",
       "ImagePath": "Icons\\milk.png",
       "LowLevelIndicatorAmount": 2,
-      "AvailableAmount": 2
+      "AvailableAmount": 0
     }
   }
 }

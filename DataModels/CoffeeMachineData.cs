@@ -12,7 +12,7 @@ namespace GenericMachine.DataModels
     {        
         public Dictionary<string, BeverageData> Beverages { get; set; }
 
-        public Dictionary<string,IngredientData> Inventory { get; set; }
+        public Dictionary<string,IngredientData> IngredientsInventory { get; set; }
 
     }
 
