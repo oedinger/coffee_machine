@@ -42,5 +42,6 @@ Implementation of a generic coffee machine by using C# and Windows Presentation 
 <br>
 
 # Application Snaspshot
-![image](https://user-images.githubusercontent.com/6663720/132924609-ebc2f01a-5ed0-4fc7-9572-b190ac6f781c.png)
+![image](https://user-images.githubusercontent.com/6663720/132960717-ce2f8f32-b968-4c76-9679-230afd0cd953.png)
+
 
