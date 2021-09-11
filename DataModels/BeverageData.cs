@@ -14,7 +14,9 @@ namespace GenericMachine.DataModels
         public static string ConfigDirPath { get; set; }
     }
 
-    public class IngredientData: ViewModelBase
+    public enum AmountLevel { High, Low, Empty }
+
+    public class CommonData : ViewModelBase
     {
         public string Name { get; set; }
 
@@ -22,7 +24,10 @@ namespace GenericMachine.DataModels
 
         [JsonIgnore]
         public string ImageFullPath { get => File.Exists(ImagePath) ? ImagePath : Path.Combine(ConfigData.ConfigDirPath, ImagePath); }
+    }
 
+    public class IngredientData: CommonData
+    {
         public int LowLevelIndicatorAmount { get; set; }
 
         private int _availableAmount;
@@ -38,43 +43,29 @@ namespace GenericMachine.DataModels
                 {
                     _availableAmount = value;
                     OnPropertyChanged("AvailableAmount");
-                    OnPropertyChanged("IsLowLevel");
-                    OnPropertyChanged("IsEmpty");
+                    OnPropertyChanged("AvailableAmountLevel");
                 }
             }
         }
 
         [JsonIgnore]
-        public bool IsLowLevel
+        public AmountLevel AvailableAmountLevel
         {
             get
             {
-                return _availableAmount <= LowLevelIndicatorAmount;
+                if (_availableAmount == 0)
+                    return AmountLevel.Empty;
+                if (_availableAmount > 0 && _availableAmount <= LowLevelIndicatorAmount)
+                    return AmountLevel.Low;
+
+                return AmountLevel.High;
             }
         }
-
-        [JsonIgnore]
-        public bool IsEmpty
-        {
-            get
-            {
-                return _availableAmount == 0;
-            }
-        }
-
-
     }
 
 
-    public class BeverageData : ViewModelBase
-    {
-        public string Name { get; set; }
-
-        public string ImagePath { get; set; }
-        
-        [JsonIgnore]
-        public string ImageFullPath { get => File.Exists(ImagePath) ? ImagePath : Path.Combine(ConfigData.ConfigDirPath, ImagePath); }
-
+    public class BeverageData : CommonData
+    {     
         public Dictionary<string, int> Ingredients { get; set; }
         
         private bool _isEnabled = false;        

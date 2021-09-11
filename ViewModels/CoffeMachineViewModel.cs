@@ -1,5 +1,6 @@
 ﻿using GenericMachine.DataModels;
 using GenericMachine.Implementation;
+using GenericMachine.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,13 +17,13 @@ namespace GenericMachine.ViewModels
     {
         #region Private Members
 
-        private CoffeMachineControl _coffeMachineControl;
+        private ICoffeMachineControl _coffeMachineControl;
 
         #endregion
 
         #region Constructor
 
-        public CoffeMachineViewModel(CoffeMachineControl CoffeMachineControl)
+        public CoffeMachineViewModel(ICoffeMachineControl CoffeMachineControl)
         {
             _coffeMachineControl = CoffeMachineControl;
             

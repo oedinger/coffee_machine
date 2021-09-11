@@ -333,7 +333,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataModels\CoffeeMachineData.cs" />
-    <Compile Include="DataModels\BeveragesData.cs" />
+    <Compile Include="DataModels\BeverageData.cs" />
     <Compile Include="Implementation\CoffeeMachineControl.cs" />
     <Compile Include="Interfaces\ICoffeMachineControl.cs" />
     <Compile Include="MainWindow.xaml.cs">

@@ -1,63 +1,63 @@
 {
   "Beverages": {
     "black_coffee": {
-      "Name": "Black Coffee",
-      "ImagePath": "Icons\\black_coffe.png",
       "Ingredients": {
         "hot_water": 1,
         "coffee": 2
-      }
-    },k
+      },
+      "Name": "Black Coffee",
+      "ImagePath": "Icons\\black_coffe.png"
+    },
     "chocolate": {
-      "Name": "Chocolate",
-      "ImagePath": "Icons\\hot_coco.png",
       "Ingredients": {
         "coco_powder": 1,
         "hot_water": 1,
         "milk": 1
-      }
+      },
+      "Name": "Chocolate",
+      "ImagePath": "Icons\\hot_coco.png"
     },
     "hot_water": {
-      "Name": "Hot water",
-      "ImagePath": "Icons\\hot_water.png",
       "Ingredients": {
         "hot_water": 1
-      }
+      },
+      "Name": "Hot water",
+      "ImagePath": "Icons\\hot_water.png"
     },
     "cappuccino": {
-      "Name": "Cappuccino",
-      "ImagePath": "Icons\\Cappuccino.png",
       "Ingredients": {
         "coffee": 1,
         "hot_water": 1,
         "milk": 1
-      }
+      },
+      "Name": "Cappuccino",
+      "ImagePath": "Icons\\Cappuccino.png"
     }
   },
   "IngredientsInventory": {
     "hot_water": {
-      "Name": "Hot Water",
-      "ImagePath": "Icons\\water.png",
       "LowLevelIndicatorAmount": 2,
-      "AvailableAmount": 0
+      "AvailableAmount": 0,
+      "Name": "Hot Water",
+      "ImagePath": "Icons\\water.png"
     },
     "coffee": {
-      "Name": "Coffee",
-      "ImagePath": "Icons\\coffe_bean.png",
       "LowLevelIndicatorAmount": 2,
-      "AvailableAmount": 0
+      "AvailableAmount": 6,
+      "Name": "Coffee",
+      "ImagePath": "Icons\\coffe_bean.png"
     },
     "coco_powder": {
-      "Name": "Coco Powder",
-      "ImagePath": "Icons\\coco_powder.png",
       "LowLevelIndicatorAmount": 2,
-      "AvailableAmount": 10
+      "AvailableAmount": 9,
+      "Name": "Coco Powder",
+      "ImagePath": "Icons\\coco_powder.png"
     },
     "milk": {
-      "Name": "Milk",
-      "ImagePath": "Icons\\milk.png",
       "LowLevelIndicatorAmount": 2,
-      "AvailableAmount": 0
+      "AvailableAmount": 9,
+      "Name": "Milk",
+      "ImagePath": "Icons\\milk.png"
     }
   }
 }
