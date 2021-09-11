@@ -36,7 +36,8 @@ Implementation of a generic coffee machine by using C# and Windows Presentation 
 <br>
 
 # UML
-![UML](https://user-images.githubusercontent.com/6663720/132960415-6921396b-1a42-4a76-ba6a-c54d0c581bea.png)
+![UML](https://user-images.githubusercontent.com/6663720/132960630-61049e14-abf5-448e-a578-af43482499d6.png)
+
 
 <br>
 
