@@ -1,5 +1,5 @@
 # Coffee Machine Project
-Implementation of a generic coffee machine
+Implementation of a generic coffee machine by using C# and WPF 
 
 # Requirments
 * Functional Requirements
