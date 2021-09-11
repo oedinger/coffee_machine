@@ -23,15 +23,22 @@ Implementation of a generic coffee machine
   * The architecture should be easy to integrate on different machines
   * The application needs to notify the user before an ingredient is over
 
+
 # ERD
 ![image (1)](https://user-images.githubusercontent.com/6663720/132923728-d6e2d80b-35e1-48cb-abdb-75936277fdc8.png)
 
+<br>
 
 # JSON Example
-![Screenshot 2021-09-11 011328](https://user-images.githubusercontent.com/6663720/132923196-67115403-336e-49eb-8927-ddb7cc636ff6.png)
+![Screenshot 2021-09-11 012917](https://user-images.githubusercontent.com/6663720/132924205-0d89b67e-7988-4338-8b7e-fda16744c3ba.png)
 
+<br>
 
 # UML
 ![Copy of Untitled Diagram drawio](https://user-images.githubusercontent.com/6663720/132923843-7de5424e-9d83-4899-acbd-fc676dbd6570.png)
 
+<br>
+
+# Application Snaspshot
+![image](https://user-images.githubusercontent.com/6663720/132924609-ebc2f01a-5ed0-4fc7-9572-b190ac6f781c.png)
 
