@@ -1,5 +1,5 @@
 # Coffee Machine Project
-Implementation of a generic coffee machine by using C# and WPF 
+Implementation of a generic coffee machine by using C# and Windows Presentation Framework (WPF)
 
 # Requirments
 * Functional Requirements
@@ -25,7 +25,8 @@ Implementation of a generic coffee machine by using C# and WPF
 
 
 # ERD
-![image (1)](https://user-images.githubusercontent.com/6663720/132923728-d6e2d80b-35e1-48cb-abdb-75936277fdc8.png)
+![ERD](https://user-images.githubusercontent.com/6663720/132960412-34800f0d-155e-4ca5-be2e-427f9f7652fa.png)
+
 
 <br>
 
@@ -35,7 +36,7 @@ Implementation of a generic coffee machine by using C# and WPF
 <br>
 
 # UML
-![Copy of Untitled Diagram drawio](https://user-images.githubusercontent.com/6663720/132923843-7de5424e-9d83-4899-acbd-fc676dbd6570.png)
+![UML](https://user-images.githubusercontent.com/6663720/132960415-6921396b-1a42-4a76-ba6a-c54d0c581bea.png)
 
 <br>
 
