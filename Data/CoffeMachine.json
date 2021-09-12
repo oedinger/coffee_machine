@@ -26,36 +26,45 @@
     },
     "cappuccino": {
       "Ingredients": {
-        "coffee": 1,
+        "coffee": 2,
         "hot_water": 1,
         "milk": 1
       },
       "Name": "Cappuccino",
+      "ImagePath": "Icons\\Cappuccino.png"
+    },
+    "latte": {
+      "Ingredients": {
+        "coffee": 2,
+        "hot_water": 1,
+        "milk": 1
+      },
+      "Name": "latte",
       "ImagePath": "Icons\\Cappuccino.png"
     }
   },
   "IngredientsInventory": {
     "hot_water": {
       "LowLevelIndicatorAmount": 2,
-      "AvailableAmount": 0,
+      "AvailableAmount": 30,
       "Name": "Hot Water",
       "ImagePath": "Icons\\water.png"
     },
     "coffee": {
       "LowLevelIndicatorAmount": 2,
-      "AvailableAmount": 6,
+      "AvailableAmount": 10,
       "Name": "Coffee",
       "ImagePath": "Icons\\coffe_bean.png"
     },
     "coco_powder": {
       "LowLevelIndicatorAmount": 2,
-      "AvailableAmount": 9,
+      "AvailableAmount": 10,
       "Name": "Coco Powder",
       "ImagePath": "Icons\\coco_powder.png"
     },
     "milk": {
       "LowLevelIndicatorAmount": 2,
-      "AvailableAmount": 9,
+      "AvailableAmount": 20,
       "Name": "Milk",
       "ImagePath": "Icons\\milk.png"
     }

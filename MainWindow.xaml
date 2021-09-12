@@ -7,7 +7,7 @@
         xmlns:dm="clr-namespace:GenericMachine.DataModels"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="700">
+        Title="MainWindow" Height="800" Width="800">
     <Window.Resources>
         <telerik:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <Style TargetType="{x:Type telerik:RadListBoxItem}">
@@ -62,64 +62,78 @@
 
     </Window.Resources>
     
-    <ScrollViewer >
-        <StackPanel>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"></RowDefinition>
+            <RowDefinition Height="40*"></RowDefinition>
+        </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Visible">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40*" />
-                        <ColumnDefinition Width="30*" />
-                    </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60*" />
+                    <ColumnDefinition Width="40*" />
+                </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0">
-                        <TextBlock Margin="10" Text="Beverages"></TextBlock>
-                        <ScrollViewer>
-                            <telerik:RadListBox Grid.Column="0"
-                                        Margin="5"
-                                        ItemsSource="{Binding Beverages}" VerticalAlignment="Top"                                    
-                                        SelectionMode="Single"
-                                        SelectedValue="{Binding SelectedBeverage, Mode=TwoWay}"
-							            ItemTemplate="{StaticResource BeverageDataTemplate}" >
-                            </telerik:RadListBox>
-                        </ScrollViewer>
-                    </StackPanel>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Margin="10" Text="Beverages"></TextBlock>
+                        <telerik:RadListBox Grid.Column="0"
+                                    Margin="5"
+                                    Height="300"
+                                    ItemsSource="{Binding Beverages}" VerticalAlignment="Top"                                    
+                                    ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                    SelectionMode="Single"
+                                    SelectedValue="{Binding SelectedBeverage, Mode=TwoWay}"
+							        ItemTemplate="{StaticResource BeverageDataTemplate}" >
+                        </telerik:RadListBox>
+                </StackPanel>
 
-                    <StackPanel Grid.Column="1">
-                        <TextBlock Margin="10" Text="Ingredients Status"></TextBlock>
-                        <ScrollViewer>
-                            <ListView  IsEnabled="False"
-                                       Margin="5"
-                                       ItemsSource="{Binding Ingredients}" VerticalAlignment="Top"                                                                        
-							           ItemTemplate="{StaticResource IngredientDataTemplate}" >
-                            </ListView>
-                        </ScrollViewer>
-                    </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Margin="10" Text="Ingredients Status"></TextBlock>
+                        <ListView  
+                                    Height="300"
+                                    Margin="5"
+                                    ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                    ItemsSource="{Binding Ingredients}" VerticalAlignment="Top"                                                                        
+							        ItemTemplate="{StaticResource IngredientDataTemplate}" >
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Focusable" Value="false"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                    
+                </StackPanel>
 
                 
                 
-                </Grid>
-                <telerik:RadButton Grid.Column="1" 
-                                       VerticalAlignment="Stretch" 
-                                        HorizontalAlignment="Left"
-                                       Margin="10"
-                                       Command="{Binding Brew}"
-                                       Width="100" Height="50">Brew</telerik:RadButton>
-            </StackPanel>
+            </Grid>
+            <telerik:RadButton 
+                                VerticalAlignment="Stretch" 
+                                HorizontalAlignment="Left"
+                                Margin="10"
+                                Command="{Binding Brew}"
+                                Width="100" Height="50">Brew</telerik:RadButton>
+        </StackPanel>
 
-            <StackPanel Grid.Row="1" ScrollViewer.CanContentScroll="True" Margin="5">
-                <TextBlock Margin="25,5" Text="Brew History"/>
-                <ScrollViewer>
-                    <ListView  IsEnabled="False"
-                               Margin="20,5"
-                               Height="200"
-                               ItemsSource="{Binding OrderHistory}" VerticalAlignment="Top"/>
-                </ScrollViewer>
-
-            </StackPanel>
-
+        <StackPanel Grid.Row="1" ScrollViewer.CanContentScroll="True" Margin="5">
+            <TextBlock Margin="25,5" Text="Brew History"/>
+            <ListView  IsEnabled="True"                               
+                        ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        Margin="20,5"
+                        Height="250"
+                        ItemsSource="{Binding OrderHistory}" VerticalAlignment="Top">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Focusable" Value="false"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
 
         </StackPanel>
+
+
+    </Grid>
     
-    </ScrollViewer >
 </Window>
